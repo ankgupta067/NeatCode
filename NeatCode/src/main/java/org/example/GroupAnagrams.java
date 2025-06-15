@@ -1,6 +1,7 @@
 package org.example;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 
@@ -8,6 +9,30 @@ public class GroupAnagrams {
     public static void main(String[] args) {
         String[] strs = new String[]{"eat","tea","tan","ate","nat","bat"};
         List<List<String>> result = new ArrayList<>();
+        //Basic(strs, result);
+        Better(strs);
+    }
+
+    private static void Better(String[] strs) {
+
+        HashMap<String, List<String>> map = new HashMap<>();
+        for(String str : strs){
+            int[] chars = new int[26];
+            for (int i = 0; i < str.length(); i++) {
+                chars[str.charAt(i) - 'a'] = 1;
+            }
+            StringBuilder s  = new StringBuilder();
+            for(int val : chars){
+                s.append(val);
+            }
+            var tempMap = map.getOrDefault(s.toString(),new ArrayList<>());
+            tempMap.add(str);
+            map.put(s.toString(),tempMap);
+        }
+        map.forEach((key,val ) -> System.out.println(val) );
+    }
+
+    private static void Basic(String[] strs, List<List<String>> result) {
         for (int i = 0; i < strs.length; i++) {
             if (strs[i].isEmpty()) {
                 continue;
