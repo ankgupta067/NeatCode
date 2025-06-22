@@ -32,7 +32,7 @@ class      Result {
 //sum , indx
 // 4 -> 8
     public static List<String> findSchedules(int workHours, int dayHours, String pattern) {
-
+        return null;
     }
 
 
@@ -59,4 +59,5 @@ public class Solution {
         bufferedReader.close();
         bufferedWriter.close();
     }
+}
 }

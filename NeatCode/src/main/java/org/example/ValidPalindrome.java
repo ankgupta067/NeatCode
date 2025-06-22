@@ -3,7 +3,7 @@ package org.example;
 public class ValidPalindrome {
 
     public static void main(String[] args) {
-        String input = "tab a cat";
+        String input = "tac a cat";
         input = input.toLowerCase();
         char[] inputArr = input.toCharArray();
         int i = 0;
@@ -13,7 +13,7 @@ public class ValidPalindrome {
                 i++;
                 continue;
             }
-            if (!(inputArr[j] >= 'a' && inputArr[j] <= 'z')){
+            if (!Character.isLetter(inputArr[j])){
                 j--;
                 continue;
             }
